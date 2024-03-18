@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ParallelTests" parallel="tests" thread-count="2">
+
+    <test name="ChromeTest">
+        <parameter name="BrowserName" value="chrome"/>
+        <classes>
+            <class name="Tests.SearchForBookTest"/>
+            <class name="Tests.AddBookToCartTest"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="BrowserName" value="firefox"/>
+        <classes>
+            <class name="Tests.SearchForBookTest"/>
+            <class name="Tests.AddBookToCartTest"/>
+        </classes>
+    </test>
+</suite>

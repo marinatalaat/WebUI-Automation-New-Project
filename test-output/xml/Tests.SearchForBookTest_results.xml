@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ChromeTest"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="28.045">
+    <properties></properties>
+
+
+
+            <testcase
+                name="SearchForBook"
+                time="15.975"
+                classname="Tests.SearchForBookTest">
+            </testcase>
+            <testcase
+                name="SearchForBook"
+                time="12.070"
+                classname="Tests.SearchForBookTest">
+            </testcase>
+</testsuite>
