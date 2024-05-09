@@ -23,7 +23,7 @@ public class ExcelFileUtils {
         sheet = workbook.getSheet(sheetName);
     }
 
-    public Object[][] readSpecificCol(int rowNumber, int colNumber) throws IOException {
+    public Object[][] readFromExcelFile(int rowNumber, int colNumber) throws IOException {
         int rowCount = sheet.getLastRowNum()+1;
         System.out.printf("row count  "+ rowCount);
         int colCount = sheet.getRow(rowNumber).getLastCellNum();
@@ -62,7 +62,7 @@ public class ExcelFileUtils {
         workbook.close();
         fis.close();
 
-        System.out.println(data.length + "   lenght");
+        System.out.println(data.length + "   length");
         return data;
     }
 }

@@ -27,7 +27,7 @@ public class SearchForBookTest {
 
     @DataProvider(name = "Book details data from Excel file")
     public Object[][]bookDetailsDataFromExcelSheet() throws IOException {
-        return new ExcelFileUtils("TestDataSheet/TestDataFirst.xlsx","Sheet1").readSpecificCol(0,0);
+        return new ExcelFileUtils("TestDataSheet/TestDataFirst.xlsx","Sheet1").readFromExcelFile(0,0);
     }
 
 
