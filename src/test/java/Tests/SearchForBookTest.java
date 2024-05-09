@@ -1,5 +1,6 @@
 package Tests;
 
+import Helper.ExcelFileUtils;
 import Helper.PropertiesLoader;
 import Pages.HomePage;
 import org.openqa.selenium.WebDriver;
@@ -7,13 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 public class SearchForBookTest {
 
     String FilePath="Config/Data.properties";
     String URL= PropertiesLoader.readPropertyFile(FilePath).getProperty("URL");
     public WebDriver driver;
-//    String bookNameStr = PropertiesLoader.readPropertyFile(FilePath).getProperty("BookName");
-//    String bookPriceStr = PropertiesLoader.readPropertyFile(FilePath).getProperty("BookPrice");
 
 
     @DataProvider(name = "Book details data")
@@ -24,7 +25,14 @@ public class SearchForBookTest {
         };
     }
 
-    @Test(dataProvider = "Book details data")
+    @DataProvider(name = "Book details data from Excel file")
+    public Object[][]bookDetailsDataFromExcelSheet() throws IOException {
+        return new ExcelFileUtils("TestDataSheet/TestDataFirst.xlsx","Sheet1").readSpecificCol(0,0);
+    }
+
+
+//    @Test(dataProvider = "Book details data")
+    @Test(dataProvider = "Book details data from Excel file")
     public void SearchForBook(String BookName, String BookPrice) {
         new HomePage(driver).
                 SearchInHomePage(BookName).
